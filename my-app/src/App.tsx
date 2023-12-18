@@ -1,25 +1,18 @@
-import React from "react";
-import Monday from "./components/Monday";
-import Tuesday from "./components/Tuesday";
-import Wednesday from "./components/Wednesday";
-import Thursday from "./components/Thursday";
-import Friday from "./components/Friday";
-import "./App.css";
+import Weather from "./components/Weather";
+import Header from "./components/Header";
+import { useState } from "react";
 
 function App() {
+  const [currentCity, setCurrentCity] = useState("Moscow");
   return (
-    <div className='App'>
-      <header className='App-header'>
-        <h1>Прогноз погоды</h1>
-        <div className='Days'>
-          <Monday />
-          <Tuesday />
-          <Wednesday />
-          <Thursday />
-          <Friday />
+    <>
+      <div className='bg-indigo-100'>
+        <Header setCurrentCity={setCurrentCity} />
+        <div className='flex flex-col items-center justify-center min-h-screen'>
+          <Weather currentCity={currentCity} />
         </div>
-      </header>
-    </div>
+      </div>
+    </>
   );
 }
 
